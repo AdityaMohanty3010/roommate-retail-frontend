@@ -1,14 +1,14 @@
-const API_URL = 'http://localhost:5000/api';
+// Use the Vercel environment variable if available, otherwise fall back to local dev.
+const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 
 /**
  * Sign up a new user with email and password.
- * Sends { email, password } to the backend.
  */
 export async function signup(email, password) {
   const res = await fetch(`${API_URL}/signup`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password }),  // ✅ FIXED here
+    body: JSON.stringify({ email, password }),
   });
 
   const data = await res.json();
@@ -24,7 +24,7 @@ export async function login(email, password) {
   const res = await fetch(`${API_URL}/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password }),  // ✅ FIXED here
+    body: JSON.stringify({ email, password }),
   });
 
   const data = await res.json();

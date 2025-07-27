@@ -1,8 +1,11 @@
 // src/services/huddleService.js
+
+const API_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api";
+
 export async function fetchHuddleList(prompt) {
   const token = localStorage.getItem("token");
 
-  const res = await fetch('http://localhost:5000/api/huddle', {
+  const res = await fetch(`${API_URL}/huddle`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
