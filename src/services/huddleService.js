@@ -5,12 +5,18 @@ const API_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api"
 export async function fetchHuddleList(prompt) {
   const token = localStorage.getItem("token");
 
+  // ✅ Build headers conditionally
+  const headers = {
+    'Content-Type': 'application/json',
+  };
+
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+
   const res = await fetch(`${API_URL}/huddle`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`
-    },
+    headers,
     credentials: 'include',
     body: JSON.stringify({ prompt })
   });
