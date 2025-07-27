@@ -17,7 +17,7 @@ export async function signup(email, password) {
 }
 
 /**
- * Login an existing user with email and password.
+ * Login an existing user with email and password...
  * Stores the received token in localStorage.
  */
 export async function login(email, password) {
