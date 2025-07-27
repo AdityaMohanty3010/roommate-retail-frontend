@@ -1,5 +1,5 @@
 // Use the Vercel environment variable if available, otherwise fall back to local dev.
-const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
+const API_URL = "https://roommate-retail-backend.onrender.com/api" || 'http://localhost:5000/api';
 
 /**
  * Sign up a new user with email and password.

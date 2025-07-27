@@ -1,7 +1,7 @@
 // src/services/cartservice.js
 
 // Use environment variable for API base URL (Vercel or local)
-const API_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api";
+const API_URL = "https://roommate-retail-backend.onrender.com/api"  || "http://localhost:5000/api";
 
 // 🔐 Reusable auth headers
 const getAuthHeaders = () => ({

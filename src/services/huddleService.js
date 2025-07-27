@@ -1,6 +1,6 @@
 // src/services/huddleService.js
 
-const API_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api";
+const API_URL = "https://roommate-retail-backend.onrender.com/api"  || "http://localhost:5000/api";
 
 export async function fetchHuddleList(prompt) {
   const token = localStorage.getItem("token");
