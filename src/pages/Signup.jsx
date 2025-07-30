@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { signup } from "../services/authService"; // ✅ Centralized service import
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -11,18 +12,7 @@ const Signup = () => {
   const handleSignup = async () => {
     setError("");
     try {
-      const res = await fetch("http://localhost:5000/api/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        credentials: "include",
-        body: JSON.stringify({ email, password, username })
-      });
-
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Signup failed");
-
+      const data = await signup(email, password, username); // ✅ Call shared API function
       localStorage.setItem("username", username);
       alert("🎉 Signup successful!");
       navigate("/login");

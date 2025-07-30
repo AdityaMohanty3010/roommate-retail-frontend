@@ -1,13 +1,13 @@
-import { API_URL } from './config';  // ✅ NEW: Use centralized API_URL
+import { API_URL } from './config';  // ✅ Use centralized API_URL
 
 /**
- * Sign up a new user with email and password.
+ * Sign up a new user with email, password, and username.
  */
-export async function signup(email, password) {
+export async function signup(email, password, username) {
   const res = await fetch(`${API_URL}/signup`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify({ email, password, username }), // ✅ include username
   });
 
   const data = await res.json();
@@ -16,7 +16,7 @@ export async function signup(email, password) {
 }
 
 /**
- * Login an existing user with email and password...
+ * Login an existing user with email and password.
  * Stores the received token in localStorage.
  */
 export async function login(email, password) {
