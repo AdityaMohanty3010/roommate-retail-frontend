@@ -1,6 +1,6 @@
 // src/services/huddleService.js
 
-const API_URL = "https://roommate-retail-backend.onrender.com/api"  || "http://localhost:5000/api";
+import { API_URL } from './config';  // ✅ Centralized API URL
 
 export async function fetchHuddleList(prompt) {
   const token = localStorage.getItem("token");

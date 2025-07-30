@@ -1,5 +1,4 @@
-// Use the Vercel environment variable if available, otherwise fall back to local dev.
-const API_URL = "https://roommate-retail-backend.onrender.com/api" || 'http://localhost:5000/api';
+import { API_URL } from './config';  // ✅ NEW: Use centralized API_URL
 
 /**
  * Sign up a new user with email and password.

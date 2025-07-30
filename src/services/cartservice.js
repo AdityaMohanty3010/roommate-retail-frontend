@@ -1,7 +1,6 @@
 // src/services/cartservice.js
 
-// Use environment variable for API base URL (Vercel or local)
-const API_URL = "https://roommate-retail-backend.onrender.com/api"  || "http://localhost:5000/api";
+import { API_URL } from './config';  // ✅ Use centralized config
 
 // 🔐 Reusable auth headers
 const getAuthHeaders = () => ({
@@ -64,6 +63,6 @@ export const clearCart = async () => {
 
   const data = await res.json();
 
-  if (!res.ok) throw new Error(data.error || "❌ Failed to clear cart");
+  if (!res.ok) throw new Error(data.error || "❌ Faied to delete item");
   return data; // { message: "...", cart: [] }
 };

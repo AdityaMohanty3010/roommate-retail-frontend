@@ -1,7 +1,6 @@
 // src/services/groupservice.js
 
-// Use environment variable for API base URL (Vercel or local)
-const API_URL = "https://roommate-retail-backend.onrender.com/api"  || 'http://localhost:5000/api';
+import { API_URL } from './config';  // ✅ Centralized API URL
 
 // ✅ Create a new group
 export const createGroup = async (groupName) => {
